@@ -6,7 +6,7 @@
 FROM node:20-bookworm-slim AS frontend
 WORKDIR /app/frontend
 COPY server/frontend/package*.json ./
-RUN npm ci --no-audit --no-fund
+RUN npm install --no-audit --no-fund
 COPY server/frontend/ ./
 RUN npm run build
 
