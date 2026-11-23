@@ -40,12 +40,14 @@ def login_user(request):
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
 
+
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
     # Terminate the user session
     logout(request)
     data = {"userName": ""}
     return JsonResponse(data)
+
 
 # Create a `get_cars` view to list all car makes and models
 def get_cars(request):
@@ -60,6 +62,7 @@ def get_cars(request):
             "CarMake": car_model.car_make.name
         })
     return JsonResponse({"CarModels": cars})
+
 
 # Create a `registration` view to handle sign up request
 @csrf_exempt
